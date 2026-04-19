@@ -415,7 +415,8 @@ export default function RentPayment() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
+          <div className="overflow-x-auto">
+          <Table className="min-w-[720px]">
             <TableHeader>
               <TableRow>
                 <TableHead>Date</TableHead>
@@ -463,6 +464,7 @@ export default function RentPayment() {
               )}
             </TableBody>
           </Table>
+          </div>
         </CardContent>
       </Card>
     </DashboardLayout>

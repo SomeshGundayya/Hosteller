@@ -774,7 +774,8 @@ function PaymentTable({
   onDelete: (paymentId: string) => void;
 }) {
   return (
-    <Table>
+    <div className="overflow-x-auto">
+    <Table className="min-w-[980px]">
       <TableHeader>
         <TableRow>
           <TableHead>Student</TableHead>
@@ -842,5 +843,6 @@ function PaymentTable({
         )}
       </TableBody>
     </Table>
+    </div>
   );
 }

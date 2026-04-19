@@ -233,7 +233,8 @@ export default function UsersManagement() {
       </div>
 
       <div className="dashboard-card overflow-hidden">
-        <Table>
+        <div className="overflow-x-auto">
+        <Table className="min-w-[720px]">
           <TableHeader>
             <TableRow>
               <TableHead>Student</TableHead>
@@ -292,6 +293,7 @@ export default function UsersManagement() {
             ))}
           </TableBody>
         </Table>
+        </div>
       </div>
 
       <Dialog open={!!editingStudent} onOpenChange={(open) => !open && setEditingStudent(null)}>

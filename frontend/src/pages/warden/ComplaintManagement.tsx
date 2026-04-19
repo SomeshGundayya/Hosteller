@@ -112,7 +112,8 @@ const updateStatus = async (id: string, newStatus: Complaint['status']) => {
 
       {/* Complaints Table */}
       <div className="dashboard-card overflow-hidden">
-        <Table>
+        <div className="overflow-x-auto">
+        <Table className="min-w-[860px]">
           <TableHeader>
             <TableRow>
               <TableHead>Complaint</TableHead>
@@ -165,6 +166,7 @@ const updateStatus = async (id: string, newStatus: Complaint['status']) => {
             ))}
           </TableBody>
         </Table>
+        </div>
       </div>
     </DashboardLayout>
   );

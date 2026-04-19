@@ -149,7 +149,8 @@ export default function ManageRooms() {
 
       {/* Rooms Table */}
       <div className="dashboard-card overflow-hidden">
-        <Table>
+        <div className="overflow-x-auto">
+        <Table className="min-w-[980px]">
           <TableHeader>
             <TableRow>
               <TableHead>Room</TableHead>
@@ -281,6 +282,7 @@ export default function ManageRooms() {
             })}
           </TableBody>
         </Table>
+        </div>
       </div>
     </DashboardLayout>
   );

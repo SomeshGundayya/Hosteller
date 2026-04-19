@@ -241,7 +241,8 @@ export default function RoomsManagement() {
       </div>
 
       <div className="dashboard-card overflow-hidden">
-        <Table>
+        <div className="overflow-x-auto">
+        <Table className="min-w-[900px]">
           <TableHeader>
             <TableRow>
               <TableHead>Room</TableHead>
@@ -318,6 +319,7 @@ export default function RoomsManagement() {
             })}
           </TableBody>
         </Table>
+        </div>
       </div>
 
       <Dialog open={!!editingRoom} onOpenChange={(open) => !open && setEditingRoom(null)}>
