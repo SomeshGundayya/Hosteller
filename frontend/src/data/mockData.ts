@@ -1,0 +1,215 @@
+import { User, Room, Complaint, Notice, DashboardStats, Payment, PaymentHistory } from '@/types';
+
+export const mockUsers: User[] = [
+  { id: '1', name: 'Rahul Sharma', email: 'rahul@hostel.edu', role: 'student', roomNumber: 'A-101', createdAt: '2024-01-15' },
+  { id: '2', name: 'Priya Patel', email: 'priya@hostel.edu', role: 'student', roomNumber: 'A-102', createdAt: '2024-01-16' },
+  { id: '3', name: 'Amit Kumar', email: 'amit@hostel.edu', role: 'student', roomNumber: 'A-103', createdAt: '2024-01-17' },
+  { id: '4', name: 'Sneha Verma', email: 'sneha@hostel.edu', role: 'student', roomNumber: 'B-201', createdAt: '2024-01-18' },
+  { id: '5', name: 'Dr. Rajesh Singh', email: 'rajesh.warden@hostel.edu', role: 'warden', createdAt: '2023-06-01' },
+  { id: '6', name: 'Admin User', email: 'admin@hostel.edu', role: 'admin', createdAt: '2023-01-01' },
+];
+
+export const mockRooms: Room[] = [
+  { id: '1', number: 'A-101', floor: 1, block: 'A', capacity: 3, occupied: 2, students: ['1', '2'] },
+  { id: '2', number: 'A-102', floor: 1, block: 'A', capacity: 3, occupied: 1, students: ['3'] },
+  { id: '3', number: 'A-103', floor: 1, block: 'A', capacity: 3, occupied: 0, students: [] },
+  { id: '4', number: 'B-201', floor: 2, block: 'B', capacity: 2, occupied: 2, students: ['4'] },
+  { id: '5', number: 'B-202', floor: 2, block: 'B', capacity: 2, occupied: 1, students: [] },
+  { id: '6', number: 'B-203', floor: 2, block: 'B', capacity: 2, occupied: 0, students: [] },
+  { id: '7', number: 'C-301', floor: 3, block: 'C', capacity: 4, occupied: 3, students: [] },
+  { id: '8', number: 'C-302', floor: 3, block: 'C', capacity: 4, occupied: 2, students: [] },
+];
+
+export const mockComplaints: Complaint[] = [
+  {
+    id: '1',
+    studentId: '1',
+    studentName: 'Rahul Sharma',
+    roomNumber: 'A-101',
+    type: 'water',
+    title: 'No hot water in bathroom',
+    description: 'The geyser is not working for the past 2 days. Please fix it urgently.',
+    status: 'pending',
+    createdAt: '2024-01-20T10:30:00Z',
+  },
+  {
+    id: '2',
+    studentId: '2',
+    studentName: 'Priya Patel',
+    roomNumber: 'A-102',
+    type: 'electricity',
+    title: 'Faulty power socket',
+    description: 'The power socket near the study table is sparking when plugging in devices.',
+    status: 'in-progress',
+    createdAt: '2024-01-19T14:15:00Z',
+  },
+  {
+    id: '3',
+    studentId: '3',
+    studentName: 'Amit Kumar',
+    roomNumber: 'A-103',
+    type: 'cleanliness',
+    title: 'Bathroom not cleaned',
+    description: 'The bathroom has not been cleaned for the past 3 days.',
+    status: 'resolved',
+    createdAt: '2024-01-18T09:00:00Z',
+    resolvedAt: '2024-01-19T11:00:00Z',
+  },
+  {
+    id: '4',
+    studentId: '4',
+    studentName: 'Sneha Verma',
+    roomNumber: 'B-201',
+    type: 'maintenance',
+    title: 'Broken window latch',
+    description: 'The window latch is broken and the window does not close properly.',
+    status: 'pending',
+    createdAt: '2024-01-21T08:45:00Z',
+  },
+];
+
+export const mockNotices: Notice[] = [
+  {
+    id: '1',
+    title: 'Hostel Timings Update',
+    content: 'Please note that the hostel entry time has been updated to 10:00 PM for all students. Any student returning after this time must obtain prior permission from the warden.',
+    author: 'Admin User',
+    authorRole: 'admin',
+    priority: 'important',
+    createdAt: '2024-01-21T09:00:00Z',
+  },
+  {
+    id: '2',
+    title: 'Water Supply Maintenance',
+    content: 'Water supply will be interrupted on 25th January from 10:00 AM to 2:00 PM due to tank cleaning. Please store water accordingly.',
+    author: 'Dr. Rajesh Singh',
+    authorRole: 'warden',
+    priority: 'urgent',
+    createdAt: '2024-01-20T15:30:00Z',
+  },
+  {
+    id: '3',
+    title: 'Monthly Mess Meeting',
+    content: 'The monthly mess committee meeting will be held on 28th January at 5:00 PM in the common room. All students are encouraged to attend and share their feedback.',
+    author: 'Dr. Rajesh Singh',
+    authorRole: 'warden',
+    priority: 'normal',
+    createdAt: '2024-01-19T12:00:00Z',
+  },
+  {
+    id: '4',
+    title: 'Fee Payment Reminder',
+    content: 'This is a reminder that hostel fees for the current semester are due by 31st January. Please ensure timely payment to avoid late fees.',
+    author: 'Admin User',
+    authorRole: 'admin',
+    priority: 'important',
+    createdAt: '2024-01-18T10:00:00Z',
+  },
+];
+
+export const mockStats: DashboardStats = {
+  totalStudents: 120,
+  totalRooms: 50,
+  occupiedRooms: 42,
+  vacantRooms: 8,
+  openComplaints: 12,
+  resolvedComplaints: 45,
+};
+
+export const mockPayments: Payment[] = [
+  {
+    id: 'pay1',
+    studentId: '1',
+    amount: 8000,
+    month: 'January',
+    year: 2024,
+    dueDate: '2024-01-31',
+    status: 'pending',
+    description: 'January 2024 Hostel Rent',
+  },
+  {
+    id: 'pay2',
+    studentId: '2',
+    amount: 8000,
+    month: 'January',
+    year: 2024,
+    dueDate: '2024-01-31',
+    status: 'overdue',
+    description: 'January 2024 Hostel Rent',
+  },
+  {
+    id: 'pay3',
+    studentId: '3',
+    amount: 8000,
+    month: 'January',
+    year: 2024,
+    dueDate: '2024-01-31',
+    status: 'pending',
+    description: 'January 2024 Hostel Rent',
+  },
+  {
+    id: 'pay4',
+    studentId: '4',
+    amount: 8000,
+    month: 'January',
+    year: 2024,
+    dueDate: '2024-01-31',
+    status: 'pending',
+    description: 'January 2024 Hostel Rent',
+  },
+];
+
+export const mockPaymentHistory: PaymentHistory[] = [
+  {
+    id: 'hist1',
+    studentId: '1',
+    amount: 8000,
+    month: 'December',
+    year: 2023,
+    paidAt: '2023-12-28T10:30:00Z',
+    status: 'paid',
+    description: 'December 2023 Hostel Rent',
+    transactionId: 'TXN123456789',
+    paymentMethod: 'upi',
+  },
+  {
+    id: 'hist2',
+    studentId: '1',
+    amount: 8000,
+    month: 'November',
+    year: 2023,
+    paidAt: '2023-11-25T14:15:00Z',
+    status: 'paid',
+    description: 'November 2023 Hostel Rent',
+    transactionId: 'TXN123456788',
+    paymentMethod: 'card',
+  },
+  {
+    id: 'hist3',
+    studentId: '2',
+    amount: 8000,
+    month: 'December',
+    year: 2023,
+    paidAt: '2023-12-30T09:00:00Z',
+    status: 'paid',
+    description: 'December 2023 Hostel Rent',
+    transactionId: 'TXN123456787',
+    paymentMethod: 'netbanking',
+  },
+  {
+    id: 'hist4',
+    studentId: '3',
+    amount: 8000,
+    month: 'December',
+    year: 2023,
+    paidAt: '2023-12-27T11:30:00Z',
+    status: 'paid',
+    description: 'December 2023 Hostel Rent',
+    transactionId: 'TXN123456786',
+    paymentMethod: 'upi',
+  },
+];
+
+export const currentStudent: User = mockUsers[0];
+export const currentWarden: User = mockUsers[4];
+export const currentAdmin: User = mockUsers[5];
